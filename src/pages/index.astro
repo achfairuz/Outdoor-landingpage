@@ -1,11 +1,130 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Counter from "../components/Counter.jsx";
+import AOSInit from "../components/AOS.jsx";
+import Card from "../components/Card.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title='OutdoorXplore - Jelajahi Alam Bebas'>
+  <!-- Section Hero -->
+  <section
+    class="relative bg-[url('../assets/bg-firstsection.jpg')] bg-cover bg-center bg-no-repeat py-40 px-4 text-white text-center w-full min-w-screen"
+    data-aos='fade-in'
+    data-aos-duration='1500'
+  >
+    <!-- Overlay gelap -->
+    <div class='absolute inset-0 bg-black/40 z-0'></div>
+
+    <!-- Konten -->
+    <div class='relative z-10' data-aos='zoom-in' data-aos-delay='300'>
+      <h2 class='text-2xl md:text-4xl font-bold mb-4'>
+        Jelajahi Alam Bebas Bersama OutdoorXplore
+      </h2>
+      <p class='text-sm md:text-lg max-w-2xl mx-auto opacity-60'>
+        Temukan keindahan alam Indonesia dari pegunungan hingga pantai. Rasakan
+        petualangan yang sesungguhnya dan abadikan setiap momen terbaikmu di
+        alam terbuka.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section Katalog Produk -->
+  <section
+    class='w-full overflow-x-auto bordermin-w-screen'
+    data-aos='fade-up'
+    data-aos-duration='1200'
+  >
+    <div
+      class='flex flex-row mx-auto items-center min-w-max flex-nowrap space-x-4 p-4'
+    >
+      <Card title='Carrier' src='/produk/tas.png' data-aos='flip-left' />
+      <Card title='Tenda' src='/produk/tenda.jpg' data-aos='flip-left' />
+      <Card
+        title='Tracking Pole'
+        src='/produk/trackingpole.jpeg'
+        data-aos='flip-left'
+      />
+      <Card title='Sleeping Bag' src='/produk/sb.webp' data-aos='flip-left' />
+      <Card title='Sleeping Bag' src='/produk/sb.webp' data-aos='flip-left' />
+      <Card title='Sleeping Bag' src='/produk/sb.webp' data-aos='flip-left' />
+      <Card title='Sleeping Bag' src='/produk/sb.webp' data-aos='flip-left' />
+      <Card title='Sleeping Bag' src='/produk/sb.webp' data-aos='flip-left' />
+      <Card title='Nesting' src='/produk/nesting.jpg' data-aos='flip-left' />
+      <Card
+        title='Kompor Portable'
+        src='/produk/kompor.jpg'
+        data-aos='flip-left'
+      />
+      <Card
+        title='Kompor Portable'
+        src='/produk/kompor.jpg'
+        data-aos='flip-left'
+      />
+    </div>
+  </section>
+
+  <section class='mx-6'>
+    <div
+      class='flex md:flex-row flex-col justify-center mx-auto py-20 gap-16 md:gap-40 items-center'
+    >
+      <div class='container container-text max-w-2xl' data-aos='fade-right'>
+        <div
+          class='badge bg-green-700 text-white rounded-r-full w-40 mb-6 border-l-4 border-l-black px-2'
+        >
+          <h1 class='py-2 px-2 font-semibold'>Open Trip</h1>
+        </div>
+        <div class='text'>
+          <h1 class='text-green-600 font-bold text-4xl mb-2'>
+            Open Trip Mt. Arjuna
+          </h1>
+          <p class='text-justify'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+            possimus dolores provident quos, magni incidunt distinctio
+            reprehenderit delectus cupiditate perferendis voluptate accusantium
+            excepturi quas minima nostrum quibusdam expedita eos rem? Lorem,
+            ipsum dolor sit amet consectetur adipisicing elit. Ut omnis incidunt
+            eius ullam totam, tenetur porro! Quia libero ipsum aut sapiente.
+            Impedit veritatis voluptate, beatae voluptatibus nesciunt laudantium
+            autem vitae. Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Inventore at id voluptas perferendis eos, sint culpa eius
+            ratione quidem veritatis quia earum. Porro, cumque facere laboriosam
+            quasi est quo animi?
+          </p>
+        </div>
+        <button
+          class='flex items-center gap-1 text-green-400 border border-green-400 rounded-full py-2 px-4 hover:bg-green-50 transition mt-4 hover:scale-110'
+          data-aos='zoom-in'
+        >
+          Selengkapnya
+          <span class='material-symbols-outlined text-lg'>arrow_right_alt</span>
+        </button>
+      </div>
+
+      <div
+        class='container container-image relative w-96 h-80 items-center'
+        data-aos='fade-left'
+      >
+        <img
+          src='/opentrip/promotion1.jpg'
+          alt='promotion1'
+          class='absolute top-0 left-0 w-72 rounded-xl shadow-lg border-4 border-white z-10'
+        />
+        <img
+          src='/opentrip/promotion2.jpg'
+          alt='promotion1'
+          class='absolute bottom-20 right-8 w-40 rounded-xl z-30 border-4 border-white'
+          style='box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.805);'
+        />
+        <img
+          src='/opentrip/promotion3.jpg'
+          alt='promotion1'
+          class='absolute top-16 right-0 w-32 rounded-xl z-20 border-4 border-white shadow shadow-white'
+          style='box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.805);'
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Inisialisasi AOS -->
+  <AOSInit client:load />
 </Layout>
