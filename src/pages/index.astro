@@ -1,36 +1,63 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Counter from "../components/Counter.jsx";
+import Inpt from "../components/input.astro";
+import Button from "../components/button.astro";
 import AOSInit from "../components/AOS.jsx";
 import Card from "../components/Card.astro";
+import CardRent from "../components/cardRent.astro";
+const items = [];
+
+for (let i = 0; i < 10; i++) {
+  items.push({
+    title: "Tenda",
+    src: "/produk/tenda.jpg",
+    aos: "flip-left",
+    price: 45000,
+  });
+}
 ---
 
 <Layout title='OutdoorXplore - Jelajahi Alam Bebas'>
+  <style>
+    @media (max-width: 768px) {
+      /* Hanya di mobile */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .hide-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+    }
+  </style>
+
   <!-- Section Hero -->
   <section
-    class="relative bg-[url('../assets/bg-firstsection.jpg')] bg-cover bg-center bg-no-repeat py-40 px-4 text-white text-center w-full min-w-screen"
+    class="relative bg-[url('../assets/bg-firstsection.jpg')] bg-cover bg-center bg-no-repeat py-40 px-4 text-white text-center w-full"
     data-aos='fade-in'
     data-aos-duration='1500'
   >
     <!-- Overlay gelap -->
-    <div class='absolute inset-0 bg-black/40 z-0'></div>
+    <div class='absolute inset-0 bg-black/40 z-0' id='Dashboard'></div>
 
     <!-- Konten -->
-    <div class='relative z-10' data-aos='zoom-in' data-aos-delay='300'>
+    <div class='relative z-10 mx-4' data-aos='zoom-in' data-aos-delay='300'>
       <h2 class='text-2xl md:text-4xl font-bold mb-4'>
-        Jelajahi Alam Bebas Bersama OutdoorXplore
+        Explore the Wild with OutdoorXplore
       </h2>
       <p class='text-sm md:text-lg max-w-2xl mx-auto opacity-60'>
-        Temukan keindahan alam Indonesia dari pegunungan hingga pantai. Rasakan
-        petualangan yang sesungguhnya dan abadikan setiap momen terbaikmu di
-        alam terbuka.
+        Discover Indonesia's natural beauty, from mountains to beaches.
+        Experience a true adventure and capture every moment of your life in the
+        great outdoors.
       </p>
     </div>
   </section>
 
   <!-- Section Katalog Produk -->
   <section
-    class='w-full overflow-x-auto bordermin-w-screen'
+    class='w-full overflow-x-auto hide-scrollbar'
     data-aos='fade-up'
     data-aos-duration='1200'
   >
@@ -63,68 +90,211 @@ import Card from "../components/Card.astro";
     </div>
   </section>
 
-  <section class='mx-6'>
+  <section class='mx-4 md:mx-6' id='Services'>
     <div
-      class='flex md:flex-row flex-col justify-center mx-auto py-20 gap-16 md:gap-40 items-center'
+      class='flex flex-col md:flex-row justify-center mx-auto py-12 md:py-20 gap-10 md:gap-12 items-center'
     >
-      <div class='container container-text max-w-2xl' data-aos='fade-right'>
+      <!-- Teks -->
+      <div class='max-w-xl w-full px-2 md:px-0' data-aos='fade-right'>
         <div
-          class='badge bg-green-700 text-white rounded-r-full w-40 mb-6 border-l-4 border-l-black px-2'
+          class='bg-green-700 text-white rounded-r-full w-32 md:w-40 mb-4 border-l-4 border-black px-2'
         >
-          <h1 class='py-2 px-2 font-semibold'>Open Trip</h1>
-        </div>
-        <div class='text'>
-          <h1 class='text-green-600 font-bold text-4xl mb-2'>
-            Open Trip Mt. Arjuna
+          <h1 class='py-1 px-2 text-sm md:text-base font-semibold'>
+            Open Trip
           </h1>
-          <p class='text-justify'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            possimus dolores provident quos, magni incidunt distinctio
-            reprehenderit delectus cupiditate perferendis voluptate accusantium
-            excepturi quas minima nostrum quibusdam expedita eos rem? Lorem,
-            ipsum dolor sit amet consectetur adipisicing elit. Ut omnis incidunt
-            eius ullam totam, tenetur porro! Quia libero ipsum aut sapiente.
-            Impedit veritatis voluptate, beatae voluptatibus nesciunt laudantium
-            autem vitae. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Inventore at id voluptas perferendis eos, sint culpa eius
-            ratione quidem veritatis quia earum. Porro, cumque facere laboriosam
-            quasi est quo animi?
-          </p>
         </div>
+        <h1 class='text-green-600 font-bold text-2xl md:text-4xl mb-2'>
+          Open Trip Mt. Arjuna
+        </h1>
+        <p class='text-justify text-sm md:text-base'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+          possimus dolores provident quos, magni incidunt distinctio
+          reprehenderit delectus cupiditate perferendis voluptate accusantium
+          excepturi quas minima nostrum quibusdam expedita eos rem?
+          <br /><br />
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut omnis incidunt
+          eius ullam totam, tenetur porro! Quia libero ipsum aut sapiente. Impedit
+          veritatis voluptate, beatae voluptatibus nesciunt laudantium autem vitae.
+          <br /><br />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore at id
+          voluptas perferendis eos, sint culpa eius ratione quidem veritatis quia
+          earum. Porro, cumque facere laboriosam quasi est quo animi?
+        </p>
         <button
-          class='flex items-center gap-1 text-green-400 border border-green-400 rounded-full py-2 px-4 hover:bg-green-50 transition mt-4 hover:scale-110'
+          class='flex items-center gap-1 text-green-400 border border-green-400 rounded-full py-2 px-4 hover:bg-green-50 transition mt-4 hover:scale-105'
           data-aos='zoom-in'
         >
           Selengkapnya
-          <span class='material-symbols-outlined text-lg'>arrow_right_alt</span>
+          <span class='material-symbols-outlined'>arrow_right_alt</span>
         </button>
       </div>
 
+      <!-- Gambar -->
       <div
-        class='container container-image relative w-96 h-80 items-center'
-        data-aos='fade-left'
+        class='relative w-full max-w-sm h-72 md:w-96 md:h-80 items-center'
+        data-aos='fade-up'
       >
         <img
           src='/opentrip/promotion1.jpg'
           alt='promotion1'
-          class='absolute top-0 left-0 w-72 rounded-xl shadow-lg border-4 border-white z-10'
+          class='absolute top-0 left-1/2 -translate-x-1/2 w-60 md:w-72 rounded-xl shadow-lg border-4 border-white z-10'
         />
         <img
           src='/opentrip/promotion2.jpg'
-          alt='promotion1'
-          class='absolute bottom-20 right-8 w-40 rounded-xl z-30 border-4 border-white'
-          style='box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.805);'
+          alt='promotion2'
+          class='absolute bottom-22 right-56 lg:bottom-18 lg:right-12 md:right-20 w-32 md:w-40 rounded-xl z-30 border-4 border-white'
+          style='box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.8);'
         />
         <img
           src='/opentrip/promotion3.jpg'
-          alt='promotion1'
-          class='absolute top-16 right-0 w-32 rounded-xl z-20 border-4 border-white shadow shadow-white'
-          style='box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.805);'
+          alt='promotion3'
+          class='absolute top-16 right-4 w-28 md:w-32 rounded-xl z-20 border-4 border-white shadow shadow-white'
+          style='box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.8);'
         />
       </div>
     </div>
   </section>
 
-  <!-- Inisialisasi AOS -->
-  <AOSInit client:load />
+  <section>
+    <div
+      class='container bg-white px-4 py-10 sm:px-6 md:px-10 lg:px-40 lg:py-20'
+    >
+      <div class='flex flex-col'>
+        <div class='text-group mb-12'>
+          <h1 class='text-4xl font-bold mb-4'>What's hot for rent now!</h1>
+          <p class='text-black/60 text-sm md:text-md'>
+            Rent complete outdoor gear for your adventure! Tent, carrier, stove,
+            sleeping bag, and more available. Convenient, affordable, and ready
+            to use!
+          </p>
+        </div>
+        <div class='flex justify-center'>
+          <div
+            class='grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-12 max-w-4xl'
+            data-aos='fade-up'
+            data-aos-delay='100'
+          >
+            {
+              items.map((item) => (
+                <CardRent
+                  title={item.title}
+                  src={item.src}
+                  data-aos={item.aos}
+                  price={item.price}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id='ContactUs'>
+    <div
+      class="relative bg-[url('../../public/bg/rohit-tandon-9wg5jCEPBsw-unsplash.jpg')] bg-cover bg-center py-20 px-4 md:px-6"
+    >
+      <!-- Overlay -->
+      <div class='absolute inset-0 bg-black/40 z-0'></div>
+
+      <div class='relative z-10 flex justify-center'>
+        <div
+          class='max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8'
+        >
+          <!-- Left Box -->
+          <div class='flex justify-center' data-aos='fade-right'>
+            <div
+              class='bg-gradient-to-b max-w-md from-blue-400 to-blue-100 text-white rounded-3xl p-8 md:p-12 shadow-lg'
+            >
+              <h1 class='text-3xl font-bold mb-8'>Get in touch</h1>
+
+              <div class='space-y-6 text-sm'>
+                <div>
+                  <p class='font-semibold'>Visit us</p>
+                  <p>Come say hello at our office HQ</p>
+                  <p>
+                    Jl. Kab No 45 67172 Kota Pasuruan, Jawa Timur, Indonesia
+                  </p>
+                </div>
+                <div>
+                  <p class='font-semibold'>Chat to us</p>
+                  <p>Outdoor@example.com</p>
+                </div>
+                <div>
+                  <p class='font-semibold'>Call us</p>
+                  <p>+62 85481518488</p>
+                </div>
+                <div class='flex gap-4 mt-4'>
+                  <a href='#'
+                    ><img src='/icons/ig.png' alt='ig' class='w-6' /></a
+                  >
+                  <a href='#'
+                    ><img src='/icons/fb.png' alt='fb' class='w-6' /></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Box -->
+          <form
+            action=''
+            class='text-white p-8 md:p-12 rounded-3xl space-y-6'
+            data-aos='fade-left'
+            data-aos-delay='200'
+          >
+            <div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
+              <Inpt
+                label='First Name'
+                id='firstname'
+                placeholder='First Name...'
+                required='true'
+              />
+              <Inpt
+                label='Last Name'
+                id='lastname'
+                placeholder='Last Name...'
+                required='true'
+              />
+            </div>
+
+            <Inpt
+              label='Email'
+              id='email'
+              type='email'
+              placeholder='Email...'
+              required='true'
+            />
+            <Inpt
+              label='Phone Number'
+              id='phonenumber'
+              placeholder='Phone Number...'
+              required='true'
+            />
+            <Inpt
+              label='Message'
+              id='message'
+              placeholder='Tell us what we can help you with'
+              required='true'
+              textarea='true'
+            />
+
+            <div class='flex items-start gap-2 text-sm'>
+              <input type='checkbox' id='check' class='mt-1' />
+              <label for='check'>
+                I'd like to receive more information about company. I understand
+                and agree to the
+                <a href='#' class='text-blue-400 underline'> Privacy Policy</a>.
+              </label>
+            </div>
+
+            <Button type='submit' button_name='Send Message' />
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<!-- Inisialisasi AOS -->
+<AOSInit client:load />

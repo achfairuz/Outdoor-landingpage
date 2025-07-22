@@ -1,0 +1,36 @@
+---
+const {
+  label,
+  id,
+  name,
+  type = "text",
+  placeholder = "",
+  value = "",
+  required = false,
+  textarea = false,
+} = Astro.props;
+---
+
+<div class='mb-4'>
+  <label for={id} class='block text-white mb-2 font-semibold'>{label}</label>
+  {
+    textarea ? (
+      <textarea
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        class='w-full h-32 p-3 bg-transparent text-white border-2 border-white/40 rounded-md placeholder-white/60 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition'
+        required={required}
+      ></textarea>
+    ) : (
+      <input
+        class='w-full p-3 bg-transparent text-white border-2 border-white/40 rounded-md placeholder-white/60 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition'
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        required
+      />
+    )
+  }
+</div>

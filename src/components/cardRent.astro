@@ -1,0 +1,26 @@
+---
+const { title, src, price } = Astro.props;
+const rupiah = (number: number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(number);
+};
+---
+
+<div
+  class='flex flex-col justify-center w-32 md:w-40 p-2 bg-white shadow-2xl rounded-md'
+>
+  <img src={src} alt={title} class='w-full mb-2' draggable='false' />
+  <div class='tex-group'>
+    <h1 class='font-bold mb-4 text-sm md:text-md'>{title}</h1>
+
+    <div class='price'>
+      <p class='text-black/40 text-sm md:text-md'>Price:</p>
+      <h1 class='font-bold text-sm md:text-md'>
+        {rupiah(price)}<span class='font-normal'>/Days</span>
+      </h1>
+    </div>
+  </div>
+</div>

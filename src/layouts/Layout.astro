@@ -15,7 +15,7 @@ const { title } = Astro.props;
     />
   </head>
   <body class='bg-white text-gray-800'>
-    <header class='text-gray-800 min-w-screen w-full'>
+    <header class='text-gray-800 w-full'>
       <div
         class='head flex flex-col md:flex-row md:justify-between py-8 px-4 justify-center gap-4'
       >
@@ -37,16 +37,16 @@ const { title } = Astro.props;
         class='flex items-center justify-center bg-green-600 py-4 text-white'
       >
         <nav class='space-x-4'>
-          <a href='#' class='hover:underline'>Beranda</a>
-          <a href='#' class='hover:underline'>Layanan</a>
-          <a href='#' class='hover:underline'>Kontak</a>
+          <a href='#Dashboard' class='hover:underline'>Dashboard</a>
+          <a href='#Services' class='hover:underline'>Services</a>
+          <a href='#ContactUs' class='hover:underline'>Contact us</a>
         </nav>
       </div>
     </header>
     <main class='container'>
       <slot />
     </main>
-    <footer class='bg-green-900 text-white text-center p-4 min-w-screen w-full'>
+    <footer class='bg-green-900 text-white text-center p-4 w-full'>
       &copy; 2025 OutdoorXplore. Semua Hak Dilindungi.
     </footer>
   </body>
